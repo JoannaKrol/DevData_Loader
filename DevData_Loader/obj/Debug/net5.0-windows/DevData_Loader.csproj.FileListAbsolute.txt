@@ -27,3 +27,4 @@ C:\Users\remig\OneDrive\Pulpit\Asia GIT\DevData_Loader\DevData_Loader\bin\Debug\
 C:\Users\remig\OneDrive\Pulpit\Asia GIT\DevData_Loader\DevData_Loader\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\remig\OneDrive\Pulpit\Asia GIT\DevData_Loader\DevData_Loader\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\remig\OneDrive\Pulpit\Asia GIT\DevData_Loader\DevData_Loader\obj\Debug\net5.0-windows\DevData_Loader.csproj.CopyComplete
+C:\Users\remig\OneDrive\Pulpit\Asia GIT\DevData_Loader\DevData_Loader\bin\Debug\net5.0-windows\Newtonsoft.Json.dll

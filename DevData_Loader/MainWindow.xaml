@@ -24,6 +24,7 @@
             Name="tbLogin"
             VerticalAlignment="Top"
             Width="150"
+            TextChanged="TbLogin_Change"
         />
         <TextBlock 
             Height="20" 
@@ -42,6 +43,7 @@
             Name="pwPassword"
             VerticalAlignment="Top"
             Width="150"
+            PasswordChanged="PwPassword_Change"
         />
         <Button
             Content="Testuj połączenie"
@@ -51,7 +53,7 @@
             Name="btnTest"
             VerticalAlignment="Top"
             Width="150"
-            Click="btnTest_Click"
+            Click="BtnTest_Click"
         />
         <Button
             Content="Załaduj dane"
@@ -61,14 +63,14 @@
             Name="btnLoadData"
             VerticalAlignment="Bottom"
             Width="150"
-            Click="btnLoadData_Click"
+            Click="BtnLoadData_Click"
             IsEnabled="False"
         />
         <DataGrid 
             Name="dgData"
             AutoGenerateColumns="True"
             Margin="210,10,10,10"
-            
+            ItemsSource="{Binding}"
         />
     </Grid>
 </Window>
