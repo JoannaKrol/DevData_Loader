@@ -62,11 +62,18 @@ namespace DevData_Loader
 
             string sqlCommand = "select * from DevData.INFORMATION_SCHEMA.COLUMNS";
             
-            var dt = dataBaseAdapter.GetSqlResult(tbLogin.Text, pwPassword.Password, sqlCommand);
+            var dt = dataBaseAdapter.GetSqlResult(tbLogin.Text, pwPassword.Password, sqlCommand, out string err);
 
-            var intTypeColumns = dt.AsEnumerable().Where(r => r.Field<string>("DATA_TYPE") == "int");
+            if (err.Equals(""))
+            {
+                var intTypeColumns = dt.AsEnumerable().Where(r => r.Field<string>("DATA_TYPE") == "int");
 
-            dgData.DataContext = intTypeColumns.CopyToDataTable();
+                dgData.DataContext = intTypeColumns.CopyToDataTable();
+            }
+            else
+            {
+                MessageBox.Show(err, "Nieudane wykonanie zapytania", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void TbLogin_Change(object sender, RoutedEventArgs e)

@@ -41,18 +41,26 @@ namespace DevData_Loader.Adapters
             return result;
         }
 
-        public DataTable GetSqlResult(string login, string password, string query)
+        public DataTable GetSqlResult(string login, string password, string query, out string err)
         {
-            DataTable dt;
+            DataTable dt = new DataTable();
+            err = "";
 
             using (SqlConnection con = new SqlConnection($"Data Source={ServerName};Initial Catalog={DataBaseName};User id={login};Password={password}"))
             {
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.CommandType = CommandType.Text;
                 DataSet dataSet = new DataSet();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dataSet);
-                dt = dataSet.Tables[0];
+                try
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(dataSet);
+                    dt = dataSet.Tables[0];
+                }
+                catch (Exception ex)
+                {
+                    err = $"Bład podczas wywoływania zapytania: {query}. Komunikat błędu: {ex.Message}";
+                }
             }
 
             return dt;
